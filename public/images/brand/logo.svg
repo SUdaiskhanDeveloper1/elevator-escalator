@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" width="220" height="48" role="img" aria-label="Ascendix">
+  <g fill="none" stroke="#123B5D" stroke-width="3">
+    <path d="M12 38 L24 10 L36 38" />
+    <line x1="18" y1="26" x2="30" y2="26"/>
+  </g>
+  <polygon points="24,4 30,12 18,12" fill="#D4A83F"/>
+  <text x="50" y="32" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#123B5D" letter-spacing="0.5">Ascendix</text>
+</svg>

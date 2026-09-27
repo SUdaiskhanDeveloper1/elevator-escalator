@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand palette — mirrors data/site.config.ts brand values.
+     Update both places (or wire a build step) when re-theming. */
+  --brand: #123b5d;
+  --brand-50: #eef3f8;
+  --brand-100: #d6e2ee;
+  --brand-600: #16496f;
+  --brand-700: #123b5d;
+  --brand-800: #0e2f49;
+  --brand-900: #0a2135;
+
+  --accent: #d4a83f;
+  --accent-600: #c2962c;
+  --accent-700: #a87f22;
+
+  --ink: #16202b;
+  --muted: #5a6672;
+  --line: #e4e8ee;
+  --surface: #f6f8fa;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-white text-ink antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-brand-900;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  /* Visible, consistent focus states for keyboard users */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-white;
+  }
+  /* Respect reduced-motion preferences globally */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent-700;
+  }
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+  .prose-body {
+    @apply text-[15px] leading-relaxed text-muted sm:text-base;
+  }
+  .link-underline {
+    @apply relative inline-flex items-center gap-1.5 font-medium text-brand-700 transition-colors hover:text-accent-700;
+  }
+  /* Utility to constrain rich text line length */
+  .measure {
+    max-width: 68ch;
+  }
+}
+
+/* Skip link */
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-brand-900 focus:px-4 focus:py-2 focus:text-white;
+}
